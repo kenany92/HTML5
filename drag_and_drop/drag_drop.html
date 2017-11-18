@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #div1, #div2{
+       float: left;
+       width: 280px;
+       height: 180px;
+       margin: 10px;
+       padding: 10px;
+       border: 1px solid #aaaaaa;
+   }
+    </style>
+</head>
+<body>
+    <div id="div1" ondragover="return allowDropStatus(event)" ondrop="return dropComplete(event)">
+            <img src="IMG_0037.jpg" draggable="true" width="250" height="150" id="drag1" ondragstart="return dragInitialise(event)" />
+    </div>
+    <div id="div2" ondragover="return allowDropStatus(event)" ondrop="return dropComplete(event)"></div>
+
+    <script>
+
+        function dragInitialise(evt){
+            evt.dataTransfer.effectAllowed='move';
+            evt.dataTransfer.setData("Text", evt.target.getAttribute('id'));
+            return true;
+        }
+
+        function allowDropStatus(evt){
+            evt.preventDefault();
+            return false;
+        }
+
+        function dropComplete(evt) {
+            evt.preventDefault();
+            var src = evt.dataTransfer.getData("Text");
+            evt.target.appendChild(document.getElementById(src));
+            evt.stopPropagation();
+            return false;
+        }
+    </script>
+</body>
+</html>
