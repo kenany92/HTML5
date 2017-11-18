@@ -1,0 +1,1 @@
+For fileupload, you must create a child directory (data) inside the php directory
