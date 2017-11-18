@@ -1,0 +1,6 @@
+{
+    "musics": [
+        {"artist": "Davido", "url": "music/Davido.mp3"},
+        {"artist": "M. Leo", "url": "music/partout.mp3"}
+    ]
+}
